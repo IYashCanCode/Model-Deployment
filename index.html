@@ -70,42 +70,50 @@
     .air-conditioning-label {
       width: 5%;
       text-align: right;
-      margin-right: -5px; /* Adjust the right margin for spacing */
+      margin-right: -5px;
     }
 
-    /* Newly added styles */
     .preferred-area-label,
     .furnished-status-label {
       width: 15%;
       text-align: right;
-      margin-right: -5px; /* Adjust the right margin for spacing */
+      margin-right: -5px;
     }
 
     .bedrooms-label {
-      width: 5%; /* Adjust the width as needed */
+      width: 5%;
       text-align: right;
-      margin-right: 20px; /* Adjust the right margin for spacing */
+      margin-right: 20px;
     }
 
-    /* Newly added styles for bathrooms */
     .bathrooms-label {
-      width: 5%; /* Adjust the width as needed */
+      width: 5%;
       text-align: right;
-      margin-right: 24px; /* Adjust the right margin for spacing */
+      margin-right: 24px;
     }
 
     .stories-label {
-      width: 5%; /* Adjust the width as needed */
+      width: 5%;
       text-align: right;
-      margin-right: -5px; /* Adjust the right margin for spacing */
+      margin-right: -5px;
     }
+
+    .prediction-text {
+      margin-top: 20px;
+      font-weight: bold;
+      background-color: lightyellow;
+      font-size: 30px;
+      color: orange;
+      text-align: center; 
+    }
+
   </style>
 </head>
 <body>
   <h1>House Price Prediction</h1>
   
   <div class="form-container" style="margin-left: 1%;">
-    <form action = '/predict' method="POST">
+    <form action="/predict" method="POST">
       <label for="area" class="area-label">Area:</label>
       <input type="text" id="area" name="area" placeholder="Enter area...">
       
@@ -137,7 +145,7 @@
         <option value="No">No</option>
       </select>
       
-      <br> <!-- Adding a line break here -->
+      <br>
       <br><br>
       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label for="hotWaterHeating" class="hot-water-label">Hot Water Heating:</label>
       <select id="hotWaterHeating" name="hotWaterHeating">
@@ -169,8 +177,13 @@
       <br><br>
       <input type="submit" value="Predict" style="margin-left: auto; margin-right: auto; display: block;">
     </form>
-    
-    {{prediction_text }}
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <h1 class="prediction-text">
+      {{ prediction_text }}
+    </h1>
 	
   </div>
 </body>
