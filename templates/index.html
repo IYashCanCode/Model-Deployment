@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>House Price Prediction</title>
+  <style>
+    body {
+      background-color: lightyellow;
+      text-align: center;
+      padding: 30px;
+      font-family: 'Arial', sans-serif;
+    }
+    h1 {
+      color: orange;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .form-container {
+      margin-top: 20px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    input[type="text"],
+    select {
+      padding: 5px;
+      margin: 5px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      width: 200px;
+      box-sizing: border-box;
+      font-size: 16px;
+      outline: none;
+      background-color: lightyellow;
+    }
+    input[type="text"]:focus,
+    select:focus {
+      border-bottom: 2px solid orange;
+    }
+    input[type="submit"] {
+      padding: 12px 24px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: orange;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: inline-block;
+      color: orange;
+      width: 70px;
+    }
+    select {
+      background-color: lightyellow;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    .area-label,
+    .main-road-label,
+    .guest-room-label,
+    .hot-water-label,
+    .air-conditioning-label {
+      width: 5%;
+      text-align: right;
+      margin-right: -5px;
+    }
+
+    .preferred-area-label,
+    .furnished-status-label {
+      width: 15%;
+      text-align: right;
+      margin-right: -5px;
+    }
+
+    .bedrooms-label {
+      width: 5%;
+      text-align: right;
+      margin-right: 20px;
+    }
+
+    .bathrooms-label {
+      width: 5%;
+      text-align: right;
+      margin-right: 24px;
+    }
+
+    .stories-label {
+      width: 5%;
+      text-align: right;
+      margin-right: -5px;
+    }
+
+    .prediction-text {
+      margin-top: 20px;
+      font-weight: bold;
+      background-color: lightyellow;
+      font-size: 30px;
+      color: orange;
+      text-align: center; 
+    }
+
+  </style>
+</head>
+<body>
+  <h1>House Price Prediction</h1>
+  
+  <div class="form-container" style="margin-left: 1%;">
+    <form action="/predict" method="POST">
+      <label for="area" class="area-label">Area:</label>
+      <input type="text" id="area" name="area" placeholder="Enter area...">
+      
+      <label for="bedrooms" class="bedrooms-label">Bedrooms:</label>
+      <input type="text" id="bedrooms" name="bedrooms" placeholder="Enter bedrooms...">
+      
+      <label for="bathrooms" class="bathrooms-label">Bathrooms:</label>
+      <input type="text" id="bathrooms" name="bathrooms" placeholder="Enter bathrooms...">
+      
+      <label for="stories" class="stories-label">Stories:</label>
+      <input type="text" id="stories" name="stories" placeholder="Enter stories...">
+
+      <br><br><br><br>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label for="mainRoad" class="main-road-label">Main Road:</label>
+      <select id="mainRoad" name="mainRoad">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="guestRoom" class="guest-room-label">Guest Room:</label>
+      <select id="guestRoom" name="guestRoom">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="basement">Basement:</label>
+      <select id="basement" name="basement">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <br>
+      <br><br>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label for="hotWaterHeating" class="hot-water-label">Hot Water Heating:</label>
+      <select id="hotWaterHeating" name="hotWaterHeating">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="airConditioning" class="air-conditioning-label">Air Conditioning:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <select id="airConditioning" name="airConditioning">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="parking">Parking:</label>
+      <input type="text" id="parking" name="parking" placeholder="Enter parking...">
+
+      <br><br><br>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <label for="preferredArea" class="preferred-area-label">Preferred Area:</label>
+      <select id="preferredArea" name="preferredArea">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      
+      <label for="furnishedStatus" class="furnished-status-label">Furnished Status:</label>
+      <select id="furnishedStatus" name="furnishedStatus">
+        <option value="Furnished">Furnished</option>
+        <option value="Semi Furnished">Semi Furnished</option>
+        <option value="Unfurnished">Unfurnished</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Predict" style="margin-left: auto; margin-right: auto; display: block;">
+    </form>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <h1 class="prediction-text">
+      {{ prediction_text }}
+    </h1>
+	
+  </div>
+</body>
+</html>
